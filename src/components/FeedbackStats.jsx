@@ -21,6 +21,8 @@ average = average.toFixed(1).replace(/[.,]0$/,"")
   )
 }
 
+//Stating the type requirement for the FeedbackStats
+//Stating that the data is required, you need to have a value here
 FeedbackStats.propTypes = {
     feedback: PropTypes.array.isRequired,
 }
