@@ -7,6 +7,9 @@ import AboutIconLink from "./components/AboutIconLink";
 import AboutPage from "./pages/AboutPage";
 import { FeedbackProvider } from "./context/FeedbackContext";
 
+//Although we can just use Link tags using Route inside Routes tags
+//is preferred due to Link refreshing the page and Route just taking
+//us there without refreshing the page
 function App() {
   return (
     <FeedbackProvider>

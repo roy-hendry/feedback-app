@@ -18,6 +18,8 @@ function Header({text, bgColor, textColor}) {
   )
 }
 
+//It is valuable to note that these are the values that
+//will be defaulted to however we can manually overwrite them
 Header.defaultProps = {
     text: "Feedback UI",
     bgColor: "rgba(0,0,0,0.4)",
