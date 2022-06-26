@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { createContext, useState, useEffect } from "react";
 
 const FeedbackContext = createContext();
@@ -16,21 +15,25 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   const fetchFeedback = async () => {
-    const response = await fetch(
-      "http://localhost:5000/feedback?_sort=id&_order=desc"
-    );
+    const response = await fetch(`/feedback?_sort=id&_order=desc`);
     const data = await response.json();
 
     setFeedback(data);
     setIsLoading(false);
   };
 
-  const addFeedback = (newFeedback) => {
-    newFeedback.id = uuidv4();
-    //due to this being a constant we can't change it's value
-    //we effectively need to copy it's data and recreate it
-    //so it also has the new data
-    setFeedback([newFeedback, ...feedback]);
+  const addFeedback = async (newFeedback) => {
+    const response = await fetch("/feedback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newFeedback),
+    });
+
+    const data = await response.json();
+
+    setFeedback([data, ...feedback]);
   };
 
   const deleteFeedback = (id) => {
