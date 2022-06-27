@@ -4,6 +4,16 @@
       "id": 1,
       "rating": 10,
       "text": "This is feedback item 1 coming from the backend"
+    },
+    {
+      "text": "We rating this number 2",
+      "rating": 2,
+      "id": 2
+    },
+    {
+      "text": "Rating this number 9",
+      "rating": 9,
+      "id": 3
     }
   ]
 }
